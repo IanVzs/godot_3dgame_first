@@ -4,7 +4,10 @@ export var min_speed = 10
 export var max_speed = 18
 
 var velocity = Vector3.ZERO
-	
+
+# Emitted when the player jumped on the mob.
+signal squashed
+
 func _physics_process(_delta):
 	move_and_slide(velocity)
 
@@ -21,7 +24,13 @@ func initialize(start_position, player_position):
 	velocity = Vector3.FORWARD * random_speed
 	# We then rotate the vector based on the mob's Y rotation to move in the direction it's looking.
 	velocity = velocity.rotated(Vector3.UP, rotation.y)
+	
+	$AnimationPlayer.playback_speed = random_speed / min_speed
+	# $Pivot.rotation.x = PI / 6 * velocity.y / 1
 
+func squash():
+	emit_signal("squashed")
+	queue_free()
 
 func _on_VisibilityNotifier_screen_exited():
 	queue_free()
