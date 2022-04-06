@@ -8,8 +8,14 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Control",
+"class": "VirtualJoystick",
+"language": "GDScript",
+"path": "res://joystick/virtual_joystick.gd"
+} ]
 _global_script_class_icons={
+"VirtualJoystick": ""
 }
 
 [application]
@@ -30,6 +36,7 @@ window/size/height=540
 [global]
 
 layer=false
+touch=false
 
 [input]
 
@@ -59,6 +66,10 @@ jump={
  ]
 }
 
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
 [layer_names]
 
 3d_physics/layer_1="player"
@@ -67,5 +78,4 @@ jump={
 
 [rendering]
 
-quality/driver/driver_name="GLES2"
 quality/filters/msaa=3

@@ -1,0 +1,3 @@
+[submodule "vir_joystick"]
+	path = vir_joystick
+	url = git@github.com:MarcoFazioRandom/Virtual-Joystick-Godot.git
