@@ -2,6 +2,7 @@ extends KinematicBody
 
 export (NodePath) var joystickLeftPath
 onready var joystickLeft : VirtualJoystick = get_node(joystickLeftPath)
+onready var joystickJump : VirtualJoystickButton = get_node(joystickLeftPath)
 
 export var speed = 14
 export var fall_acceleration = 75
@@ -32,7 +33,7 @@ func _physics_process(delta):
 		direction.z -= 1
 	
 	# Jumping.
-	if is_on_floor() and Input.is_action_just_pressed("jump"):
+	if is_on_floor() and (Input.is_action_just_pressed("jump") or Input.is_action_just_pressed("ui_select")):
 		velocity.y += jump_impulse
 	
 	if direction != Vector3.ZERO:

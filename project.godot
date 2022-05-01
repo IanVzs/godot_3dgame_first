@@ -13,9 +13,15 @@ _global_script_classes=[ {
 "class": "VirtualJoystick",
 "language": "GDScript",
 "path": "res://joystick/virtual_joystick.gd"
+}, {
+"base": "Control",
+"class": "VirtualJoystickButton",
+"language": "GDScript",
+"path": "res://joystick/virtual_joystick_button.gd"
 } ]
 _global_script_class_icons={
-"VirtualJoystick": ""
+"VirtualJoystick": "",
+"VirtualJoystickButton": ""
 }
 
 [application]
